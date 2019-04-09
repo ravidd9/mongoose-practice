@@ -150,11 +150,19 @@ and your server is running do the following:
 /*Books
 ----------------------*/
 //1. Find books with fewer than 500 but more than 200 pages
+// Book.find({$and:[{pages: {$gt: 200}}, {pages: {$lt:500}}]}, function(err, books){
+//   console.log(books)
+// })
 
 //2. Find books whose rating is less than 5, and sort by the author's name
+// Book.find({rating: {$lt: 5}}).sort({author: 1}).exec(function(err,books){
+//   console.log(books)
+// })
 
 //3. Find all the Fiction books, skip the first 2, and display only 3 of them 
-
+// Book.find({genres: "Fiction"}, null, {skip: 2, limit: 3},function(err,books){
+//   console.log(books)
+// })
 
 /*People
 ----------------------*/
